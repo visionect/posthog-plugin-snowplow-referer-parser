@@ -1,0 +1,19 @@
+{
+  "name": "posthog_utm_referrer",
+  "version": "0.0.1",
+  "description": "Posthog app that exctracts UTM params",
+  "main": "index.js",
+  "author": "Srdjan Prodanovic <srdjan.prodanovic@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.ts",
+    "test": "node index.ts test",
+    "verbose_test": "node index.ts verbose_test"
+  },
+  "dependencies": {
+    "@posthog/plugin-scaffold": "^1.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18"
+  }
+}
