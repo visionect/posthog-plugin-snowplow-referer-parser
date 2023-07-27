@@ -73,6 +73,10 @@ function processEvent(event) {
         $set_once: {
           initial_source: "direct",
           initial_referrer_parser: "direct_and_own_domains",
+          initial_medium: "undefined",
+          initial_campaign: "undefined",
+          initial_content: "undefined",
+          initial_term: "undefined",
         },
       },
     }
@@ -109,6 +113,8 @@ function processEvent(event) {
         initial_source: referrerData.source.toLowerCase(),
         initial_term: searchQuery,
         initial_referrer_parser: "snowplow",
+        initial_campaign: "undefined",
+        initial_content: "undefined",
       },
     },
   }
