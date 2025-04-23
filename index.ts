@@ -7,6 +7,10 @@ export function processEvent(event: PluginEvent) {
     return event
   }
 
+  if (!props.$current_url) {
+    return event
+  }
+  
   console.debug(
     `(Event: ${event.event}) URL: ${props.$current_url}, Referrer: ${props.$referrer}, Referring domain: ${props.$referring_domain}`,
   )
@@ -54,6 +58,10 @@ export function processEvent(event: PluginEvent) {
 
   // Direct
 
+  if (!props.$referrer) {
+    return event
+  }
+
   if (
     props.$referrer === "$direct" ||
     isReferrerFromDirectDomain(props.$referrer)
@@ -83,6 +91,10 @@ export function processEvent(event: PluginEvent) {
   }
 
   // Snowplow parser
+
+  if (!props.$referring_domain) {
+    return event
+  }
 
   const referrerData = getMediumAndSourceFromReferrer(props.$referring_domain)
   const searchQuery = getSearchQueryFromUrl(
