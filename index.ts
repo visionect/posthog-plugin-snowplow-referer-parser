@@ -6,16 +6,16 @@ export function processEvent(event: PluginEvent) {
   if (typeof props === "undefined") {
     return event
   }
-
-  if (!props.$current_url) {
-    return event
-  }
   
   console.debug(
     `(Event: ${event.event}) URL: ${props.$current_url}, Referrer: ${props.$referrer}, Referring domain: ${props.$referring_domain}`,
   )
 
   // UTM tags
+
+  if (!props.$current_url) {
+    return event
+  }
 
   if (props.$current_url.indexOf("utm_") > -1) {
     const medium = getParameterByName("utm_medium", props.$current_url)
